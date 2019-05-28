@@ -1,0 +1,5 @@
+<% if object.city.present? %> 
+<%= select_tag 'product[city]', options_for_select(City.all.map { |k| [k.name, k.id] }, :selected => City.find(object.city), :include_blank => 'None'), { data: { enumeration: true} } %>
+<% else %>
+<%= select_tag 'product[city]', options_for_select(City.all.map { |k| [k.name, k.id] }, :include_blank => 'None'), { data: { enumeration: true} } %>
+<% end %>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<%= render 'welcome/sub' %>
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-style-5">
+<form>
+<fieldset>
+<legend><span class="number">1</span> General Info</legend>
+<%= form.text_field :name, id: :product_name, placeholder: "Add name of your product or service here" %>
+<%= form.text_area :description, id: :product_description, placeholder: "Full Description" %>
+<label for="job" style="color:#000;">Images:</label>
+<%= form.file_field :image, id: :product_image %>
+<%= form.file_field :imagetwo, id: :product_image %>
+<%= form.file_field :imagethree, id: :product_image %>   
+</fieldset>
+<fieldset>
+<legend><span class="number">2</span> Additional Info</legend>
+<label for="job" style="color:#000;">Categories:</label>
+</fieldset>
+    <%#= form.select :category, ['Select a category','Electronics', 'Fashion', 'Furniture', 'Kitchen Stores', 'Restraunts', 'Hotels', 'General Stores', 'Grocery Stores'], :id => 'category' %>
+<%#= select_tag(:category, options_for_select([['Select a category', 0],['Electronics', 1], ['Fashion', 2], ['Furniture', 3], ['Kitchen Stores', 4], ['Men Stores', 5], ['Restraunts', 6], ['Hotels', 7]]))%>
+<!-- <fieldset>
+
+<%#= select_tag(:sub_category, options_for_select([['Select a sub category', 0],['Ladies Stores', 1], ['Men Stores', 2], ['Men Stores', 3], ['Men Stores', 4], ['Men Stores', 5], ['Men Stores', 6], ['Men Stores', 7]]))%>
+</fieldset> -->
+<select id="category_list" name="product[category]">
+</select>
+
+<select id="sub_category_list" name="product[sub_category]">
+</select>
+
+<table id="choices">
+        <tr id="Select a Category" style="display:none">
+            <td id=""></td>
+        </tr>
+        <tr id="Health Beauty & Babbycare" style="display:none">
+            <td id="Lips"></td>
+            <td id="Face"></td>
+            <td id="Nails"></td>
+            <td id="Kits"></td>
+            <td id="Tools"></td>
+            <td id="Facewash"></td>
+            <td id="Toner"></td>
+            <td id="Cleaner"></td>
+            <td id="Sunscreame"></td>
+            <td id="Bleach"></td>
+            <td id="Body Oil"></td>
+            <td id="Scrubs"></td>
+            <td id="Handwash"></td>
+            <td id="Hair Remover"></td>
+            <td id="Shampoo"></td>
+            <td id="Conditioner"></td>
+            <td id="Serum"></td>
+            <td id="Cleaner"></td>
+            <td id="Gels"></td>
+            <td id="Sprey"></td>
+
+
+
+            <td id="Colour"></td>
+            <td id="Hair Brushes"></td>
+            <td id="Dryer"></td>
+            <td id="Straightner/Roller"></td>
+            <td id="Razors"></td>
+            <td id="Shavers"></td>
+            <td id="Shaving Cream"></td>
+            <td id="Shaving Brushes"></td>
+            <td id="Pre & Post"></td>
+            <td id="Moustach Care"></td>
+            <td id="Men's Creame"></td>
+            <td id="Deodrents"></td>
+            <td id="Mists"></td>
+            <td id="Perfume"></td>
+            <td id="Baby Food "></td>
+            <td id="Baby Cloth"></td>
+            <td id="Girls Cloth"></td>
+            <td id="Baby Shoes"></td>
+            <td id="Baby Soap"></td>
+            <td id="Baby Oil"></td>
+
+
+
+
+
+
+
+
+            <td id="Baby Cream"></td>
+            <td id="Baby Gear"></td>
+            <td id="Diapers"></td>
+            <td id="School Kits"></td>
+            <td id="Lunch Box"></td>
+            <td id="Water Bottles"></td>
+            <td id="School bags"></td>
+            <td id="Toys"></td>
+            <td id="Birthday Gifts"></td>
+            <td id="Bed Protectors"></td>
+            <td id="Potty Chairs"></td>
+            <td id="Oral Care"></td>
+            <td id="Suppliments"></td>
+            <td id="Sanitary Pads"></td>
+            <td id="Weight Management "></td>
+            <td id="Sexual Wellness"></td>
+            <td id="Stimulants"></td>
+            <td id="Fitness Equipments"></td>
+            <td id="Running"></td>
+            <td id="Swimming"></td>
+
+
+
+
+
+
+
+
+
+
+            <td id="Yoga mats"></td>
+            <td id="Cycling"></td>
+            <td id="Tennis"></td>
+            <td id="Badminton"></td>
+            <td id="Squash"></td>
+            <td id="Table Tannis"></td>
+            <td id="Cricket / Football"></td>
+            <td id="Volleyball"></td>
+            <td id="Basketball"></td>
+            <td id="Hockey"></td>
+        </tr>
+        <tr id="Furniture" style="display:none">
+            <td id="Sofa"></td>
+            <td id="Plastic Chair"></td>
+            <td id="Wooden Chair"></td>
+            <td id="Folding Chair"></td>
+            <td id="Stools"></td>
+            <td id="Coffee Table"></td>
+            <td id="Dining Table"></td>
+            <td id="Wooden Chair"></td>
+            <td id="Office Table"></td>
+            <td id="Side Table"></td>
+
+
+
+
+            <td id="Study Table"></td>
+            <td id="Dressing Table"></td>
+            <td id="Queen Size Bed"></td>
+            <td id="King Size Bed"></td>
+            <td id="Single Bed"></td>
+            <td id="Almirah"></td>
+            <td id="Storage Cabinets"></td>
+            <td id="Sleves"></td>
+            <td id="Bean Bags"></td>
+            <td id="Shoe Racks"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <td id="Matress Single"></td>
+            <td id="Matress Double"></td>
+            <td id="Matress Protector"></td>
+            <td id="Bedsheet"></td>
+            <td id="Bed Cover"></td>
+            <td id="Blanket"></td>
+            <td id="Pillow"></td>
+            <td id="Chushion"></td>
+            <td id="Pooja Special"></td>
+            <td id="Window Curtain"></td>
+
+
+
+
+            <td id="Door Curtain"></td>
+            <td id="Door Mat"></td>
+            <td id="Towel"></td>
+            <td id="Idols"></td>
+            <td id="Paintings"></td>
+            <td id="Photo Frames"></td>
+            <td id="Vases"></td>
+            <td id="Planners"></td>
+            <td id="Flower Pots"></td>
+            <td id="Cooker"></td>
+
+
+
+
+            <td id="Kadhai"></td>
+            <td id="Stove"></td>
+            <td id="Gas Stove"></td>
+            <td id="Tava"></td>
+            <td id="Roti Maker"></td>
+            <td id="Cooking Tools"></td>
+            <td id="Frying Pan"></td>
+            <td id="Containers"></td>
+            <td id="Accessories"></td>
+            <td id="Kitchen Organisers"></td>
+
+
+
+
+            <td id="Chopping Board"></td>
+            <td id="Apron"></td>
+            <td id="Gloves"></td>
+            <td id="Table Mats"></td>
+            <td id="Scrubber"></td>
+            <td id="Mobs"></td>
+            <td id="Dustbin"></td>
+            <td id="Cleaning Tools"></td>
+            <td id="Detergents"></td>
+            <td id="Disposables"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <td id="Bathroom Cleaners"></td>
+            <td id="Toilet Cleaners"></td>
+            <td id="Freshners"></td>
+            <td id="Shoe Care"></td>
+            <td id="Home Cleaning"></td>
+            <td id="Domestic Help"></td>
+            <td id="Wiring Repair"></td>
+            <td id="Laptop Repair"></td>
+            <td id="Washing Machine Repair"></td>
+            <td id="Plumber"></td>
+
+
+
+
+            <td id="Cartpenter"></td>
+        </tr>
+        <tr id="Fashion" style="display:none">
+            <td id="Saree"></td>
+            <td id="Kurta/Kurti"></td>
+            <td id="Salwar Suit"></td>
+            <td id="Blouse"></td>
+            <td id="Women Shirt"></td>
+            <td id="Top"></td>
+            <td id="Dupatta"></td>
+            <td id="Leggins"></td>
+            <td id="Women Jeans"></td>
+
+
+
+
+
+
+
+
+            <td id="Women Trousers"></td>
+            <td id="Women Joggers"></td>
+            <td id="Women Caps"></td>
+            <td id="Women Shorts"></td>
+            <td id="Lingerie"></td>
+
+
+            <td id="Men Shirt"></td>
+            <td id="Tshirt"></td>
+            <td id="Coat"></td>
+            <td id="Blazer"></td>
+            <td id="Sweatshirt"></td>
+
+
+
+
+
+
+
+
+
+            <td id="Tie"></td>
+            <td id="Men Jeans"></td>
+            <td id="Loungwear"></td>
+            <td id="Men Shorts"></td>
+            <td id="Men Trousers"></td>
+
+
+            <td id="Men Joggers"></td>
+            <td id="Shocks"></td>
+            <td id="Hand Bag"></td>
+            <td id="Soulder Bag"></td>
+            <td id="Travel Bag"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+            <td id="Tote bag"></td>
+            <td id="Sling Bag"></td>
+            <td id="Shipping Bag"></td>
+            <td id="Messenger Bag"></td>
+            <td id="Clutches"></td>
+
+
+
+            <td id="Wallets"></td>
+            <td id="Pouches"></td>
+            <td id="Mens Watch"></td>
+            <td id="Womens Watch"></td>
+            <td id="Sports Watch"></td>
+
+
+            <td id="Heals"></td>
+            <td id="Sandels"></td>
+            <td id="Flip Flops"></td>
+            <td id="Slippers"></td>
+            <td id="Sports Shoes"></td>
+
+
+
+
+
+
+
+            <td id="Mojaris"></td>
+            <td id="Flats"></td>
+            <td id="Wedgs"></td>
+            <td id="Boots"></td>
+            <td id="Formals"></td>
+
+
+
+            <td id="Eye Glasses"></td>
+            <td id="Sunglasses"></td>
+            <td id="Caps"></td>
+        </tr>
+        <tr id="Grocery" style="display:none">
+            <td id="Milk"></td>
+            <td id="Rice"></td>
+            <td id="Beverages"></td>
+            <td id="Atta"></td>
+            <td id="Oil"></td>
+            <td id="Dal"></td>
+            <td id="Masala"></td>
+            <td id="Salt"></td>
+            <td id="Sugar"></td>
+            <td id="Noodles"></td>
+
+
+
+
+
+
+
+            <td id="Snacks"></td>
+            <td id="Biscuits"></td>
+            <td id="Dry Fruits"></td>
+            <td id="Pickles"></td>
+            <td id="Dairy"></td>
+            <td id="Stationary"></td>
+            <td id="Potato"></td>
+            <td id="Onion"></td>
+            <td id="Tomato"></td>
+            <td id="Ginger"></td>
+
+
+            <td id="Garlic"></td>
+            <td id="Cardimom"></td>
+            <td id="Leafy Veg"></td>
+            <td id="Root Veg"></td>
+            <td id="All Vegetables"></td>
+            <td id="Eggs"></td>
+            <td id="Fish"></td>
+            <td id="Chicken"></td>
+            <td id="Mutton"></td>
+            <td id="Banana"></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <td id="Oranges"></td>
+            <td id="Apples"></td>
+            <td id="Grapes"></td>
+            <td id="Pomergranet"></td>
+            <td id="Watermelons"></td>
+            <td id="Mango"></td>
+            <td id="Naspati"></td>
+            <td id="Papaya"></td>
+            <td id="Avacado"></td>
+            <td id="Coconut"></td>
+
+
+            <td id="Dates"></td>
+            <td id="Jack Fruit"></td>
+        </tr>
+        <tr id="Tutor" style="display:none">
+            <td id="Academic"></td>
+            <td id="Language"></td>
+            <td id="Music"></td>
+            <td id="Dance"></td>
+            <td id="Sports"></td>
+
+            <td id="Sewing"></td>
+            <td id="Cooking"></td>
+            <td id="Institutes"></td>
+        </tr>   
+
+
+
+
+
+        <tr id="Doctors" style="display:none">
+            <td id="General Physicsian"></td>
+            <td id="Child Specialist"></td>
+            <td id="Gynocologist"></td>
+            <td id="ENT specialists"></td>
+            <td id="Eye Specialists"></td>
+
+            <td id="Skin Specialists"></td>
+            <td id="Dentist"></td>
+            <td id="Phycologist"></td>
+            <td id="Hospitals"></td>
+            <td id="Medical Stores"></td>
+            <td id="Physiotherapist"></td>
+        </tr>  
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr id="Business & Tax" style="display:none">
+            <td id="Tax Filing"></td>
+            <td id="Company Registration"></td>
+            <td id="GST Registration"></td>
+            <td id="Lawyer"></td>
+            <td id="Web Designer"></td>
+
+            <td id="CCTV Camera"></td>
+        </tr>                        
+
+
+
+
+
+
+        <tr id="Salon" style="display:none">
+            <td id="Women"></td>
+            <td id="Men"></td>
+            <td id="Unisex"></td>
+            <td id="Makeup"></td>
+            <td id="Massage"></td>
+        </tr>  
+
+
+
+
+
+
+
+
+
+<tr id="Renovation" style="display:none">
+            <td id="Engineer"></td>
+            <td id="Vastu Sastra"></td>
+            <td id="Contractor"></td>
+            <td id="Interor"></td>
+            <td id="Furniture"></td>
+            <td id="Painter"></td>
+        </tr> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr id="Hardware" style="display:none">
+            <td id="Paints"></td>
+            <td id="Glass"></td>
+            <td id="Steel Bar"></td>
+            <td id="Cement"></td>
+            <td id="Sand"></td>
+            <td id="Agregates"></td>
+
+
+
+            <td id="Tiles"></td>
+            <td id="Plywood"></td>
+            <td id="Panel"></td>
+            <td id="Hinges & Fitings"></td>
+            <td id="Brackets & holders"></td>
+            <td id="Tapes"></td>
+            <td id="Mirriors"></td>
+            <td id="Screw Nails & Nuts"></td>
+        </tr> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr id="Weddings" style="display:none">
+            <td id="Decoration"></td>
+            <td id="FLorists"></td>
+            <td id="Tent House"></td>
+            <td id="Wedding Hall"></td>
+            <td id="Caterers"></td>
+            <td id="Photographers"></td>
+
+
+
+            <td id="Jwellery"></td>
+            <td id="Makeup"></td>
+            <td id="Mehndi"></td>
+            <td id="Pandit"></td>
+            <td id="Sound System"></td>
+            <td id="Sweet Shop"></td>
+            <td id="Event Organisers"></td>
+            <td id="Fireworks"></td>
+            <td id="Singers"></td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <tr id="Electronics" style="display:none">
+            <td id="All Electronic Items"></td>
+            <td id="AC"></td>
+            <td id="Fridge"></td>
+            <td id="Washing Machine"></td>
+            <td id="Microwave"></td>
+            <td id="TV"></td>
+
+
+
+            <td id="Camera"></td>
+            <td id="Speaker"></td>
+            <td id="Headphone"></td>
+            <td id="Home Theater"></td>
+            <td id="Portable Audio"></td>
+            <td id="Heating/Cooling"></td>
+            <td id="Light"></td>
+            <td id="Fan"></td>
+
+            <td id="Cases & Covers"></td>
+            <td id="Power Banks"></td>
+            <td id="Screen Guards"></td>
+        </tr> 
+
+
+
+
+<tr id="Old Items" style="display:none">
+        </tr>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</table>
+
+<fieldset>
+<legend><span class="number">3</span> Details</legend>
+<%= form.text_field :price, id: :product_price, placeholder: "Price of your product/service (optional for services)" %>
+<%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] },selected:  product.state ), {}, id: "state"%>
+<%= form.select :city, options_for_select([["Select a City",""]], selected:  product.city),{}, :id => 'city' %>
+<%= form.select :area, options_for_select([["Select a Area",""]], selected:  product.area),{}, :id => 'area' %>
+
+</fieldset>
+<div class="actions">
+    <%= form.submit %>
+  </div>
+</form>
+</div>
+<% end %>
+
+<script type="text/javascript">
+function populateParentlist(choice) {
+       $('#choices').find('tr').each(function() {
+           trowid = $(this).attr('id');
+           $("#category_list").append('<option>' +trowid + '</option>');
+       });
+}
+
+function populateSublist(choice) {
+    $('#sub_category_list').find('option').remove();
+    $('#choices').find('tr').each(function() {
+        trowid = $(this).attr('id');
+        $(this).find('td').each(function() {
+           tdid = $(this).attr('id');
+            if(trowid != choice)
+                return;            
+           $('#sub_category_list').append('<option>' + tdid + '</option>');
+        });
+    });
+}
+
+populateParentlist('Poland')
+populateSublist('Poland')
+
+$(function() {
+    $("#category_list").change(function() {
+        var parsel = $(this).val();
+        populateSublist(parsel);
+    });
+});
+</script>
+
+
+
+<style type="text/css">
+.form-style-5{
+  max-width: 500px;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  margin: 10px auto;
+  padding: 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+}
+
+input::-webkit-input-placeholder {
+color: red !important;
+font-size: 20px;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: red !important;  
+font-size: 20px;
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: red !important;  
+font-size: 20px;
+}
+ 
+input:-ms-input-placeholder {  
+color: red !important;  
+font-size: 20px;
+}
+
+.
+.form-style-5 fieldset{
+  border: none;
+}
+.form-style-5 legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: #000;
+}
+.form-style-5 label {
+  display: block;
+  margin-bottom: 8px;
+}
+.form-style-5 input[type="text"],
+.form-style-5 input[type="date"],
+.form-style-5 input[type="datetime"],
+.form-style-5 input[type="email"],
+.form-style-5 input[type="number"],
+.form-style-5 input[type="search"],
+.form-style-5 input[type="time"],
+.form-style-5 input[type="url"],
+.form-style-5 textarea,
+.form-style-5 select {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: rgba(255,255,255,.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box; 
+  background-color: #e8eeef;
+  color:#8a97a0;
+  -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+.form-style-5 input[type="text"]:focus,
+.form-style-5 input[type="date"]:focus,
+.form-style-5 input[type="datetime"]:focus,
+.form-style-5 input[type="email"]:focus,
+.form-style-5 input[type="number"]:focus,
+.form-style-5 input[type="search"]:focus,
+.form-style-5 input[type="time"]:focus,
+.form-style-5 input[type="url"]:focus,
+.form-style-5 textarea:focus,
+.form-style-5 select:focus{
+  background: #d2d9dd;
+}
+.form-style-5 select{
+  -webkit-appearance: menulist-button;
+  height:35px;
+}
+.form-style-5 .number {
+  background: #1abc9c;
+  color: #000;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 15px 15px 15px 0px;
+}
+
+.form-style-5 input[type="submit"],
+.form-style-5 input[type="button"]
+{
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  color: #000;
+  margin: 0 auto;
+  background: #1abc9c;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  width: 100%;
+  border: 1px solid #16a085;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}
+.form-style-5 input[type="submit"]:hover,
+.form-style-5 input[type="button"]:hover
+{
+  background: #109177;
+}
+</style>
+<script type="text/javascript">
+var  selectedCity = "";
+<% if product.city.present? %>
+  selectedCity = <%= product.city  %>;
+<% end %>
+var  selectedArea = "";
+<% if product.area.present? %>
+selectedArea = <%= product.area  %>;
+<% end %>
+$(function() {
+  if ($("select#state").val() == "") {
+    $("select#city option").remove();
+    var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+    $(row).appendTo("select#city");
+   }
+   var $val = $("select#state").val();
+   if($val != ""){
+     getCitiesOfState($val);
+   }
+   
+   $("select#state").change(function() {
+    var id_value_string = $(this).val();
+    if (id_value_string == "") {
+     $("select#city option").remove();
+     var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+     $(row).appendTo("select#city");
+    } else {
+     // Send the request and update city dropdown
+      getCitiesOfState(id_value_string)
+    }
+   });
+
+
+  if ($("select#city").val() == "" && selectedCity == "") {
+    $("select#area option").remove();
+    var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+    $(row).appendTo("select#area");
+   }
+   var $val2 = $("select#city").val();
+   console.log("val________", $val2);
+   if($val2 != "" && selectedCity == ""){
+    getAreasOfCity($val2)
+   }
+   console.log("selected_city________", selectedCity);
+   if (selectedCity != "") {
+    
+    getAreasOfCity(selectedCity)
+   }
+
+    $("select#city").change(function() {
+      var id_value_string = $(this).val();
+      if (id_value_string == "") {
+        $("select#area option").remove();
+        var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+        $(row).appendTo("select#area");
+      } else {
+        // Send the request and update city dropdown
+        getAreasOfCity(id_value_string)
+        
+      }
+    });
+
+
+  });  
+</script>

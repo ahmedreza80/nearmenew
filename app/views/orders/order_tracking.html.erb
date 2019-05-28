@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/util.css">
+	<link rel="stylesheet" type="text/css" href="/assets/trako.css">
+</head>
+<body>
+
+
+<div class="container-contact100">
+	<div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="/assets/map-marker.png" data-scrollwhell="0" data-draggable="1">
+	</div>
+	<div class="contact100-more">
+		<i class="zmdi zmdi-phone-in-talk"></i>
+		 +91 9748 444 800
+	</div>
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>The Order number you tried is not associated with any order in our sytem please order something and come back..</p>
+  </div>
+</div>
+<div class="wrap-contact100">
+ <form action="/order_tracking" method="get">
+	<form class="contact100-form validate-form">
+		<span class="contact100-form-title">
+			Track Your Order
+		</span>
+
+		<div class="wrap-input100 validate-input" data-validate="Number is required">
+			<span class="label-input100">Order No.</span>
+			<input id="order_number" class="input100" type="text" name="order_number" placeholder="Order Number...">
+			<span class="focus-input100"></span>
+		</div>
+				<div class="container-contact100-form-btn">
+			<div class="wrap-contact100-form-btn">
+				<div class="contact100-form-bgbtn"></div>
+ 			    <button type="submit" class="contact100-form-btn" onclick="checkOrderNumber()">Track</button> 
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+<div class="home">
+</div>
+
+<style>
+.container-contact100 {
+    background-image: url('/assets/vehicle_tracking_slide1.jpg');
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+}
+</style>
+<script src="/assets/trako.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+function checkOrderNumber(){
+	var number=document.getElementById("order_number").value;  
+	if (number === undefined || number === null || number == ""){
+		alert("Pleae enter Order number.");
+	}else{
+	}
+}
+</script>

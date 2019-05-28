@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/checkout.css">
+    <title>Check Out</title>
+  </head>
+  <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top:100px; position:relative;">
+                
+              
+                <div>
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                                <i class="fa fa-cart-arrow-down d-block" aria-hidden="true"></i>
+                        <p><span class="text-color" style="position:relative;">Cart ------------ Delivery &amp; Billing Address ------------ </span>
+                         Payment</p>
+                    </li>
+                  
+                  </ul>
+                  
+                </div>
+              </nav>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col col-md-8">
+                    <div class="order-summary">
+                            <div id="accordion">
+                                    <div class="card mb-1">
+                                      <div class="card-header" id="summary">
+                                        <h5 class="mb-0">
+                                          <button class="btn" data-toggle="collapse" data-target="#one" aria-expanded="true" aria-controls="one">
+                                                <strong>Need Help?</strong>
+                                                <span>(<%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>)</span>
+                                          </button>
+                                        </h5>
+                                      </div>
+                                  
+                                      <div id="one" class="collapse" aria-labelledby="summary" data-parent="#accordion">
+                                        <div class="card-body">
+                                              <div class="container">
+                                                  <div class="col col-md-8">
+                                                    <div class="box"> 
+                                                        <div class="row">
+                                                                <div class="col-md-5">
+                                                                    <img src="/assets/help.png" alt="" class="img-fluid">
+                                                                </div>
+                                                                <div class="col col-md-7">
+                                                                    <ul>
+                                                                        <li>Need Help With Delivery.</li>
+                                                                        <li>If you need any help regarding delivery.</li>
+                                                                        <li><span class="text-color"><a href="/welcome/contact">Contact Us</a></span></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                    </div>
+
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    </div>
+
+                    <div class="form-checkOut">
+                            <div id="accordion">
+                                    <div class="card">
+                                      <div class="card-header" id="form-checkOut">
+                                        <h5 class="mb-0">
+                                          <button class="btn" data-toggle="collapse" data-target="#two" aria-expanded="true" aria-controls="two">
+                                                <strong class="text-uppercase">Shipping &amp; Billing Details</strong>
+                                          </button>
+                                        </h5>
+                                      </div>
+                                  
+                                      <div id="two" class="collapse show" aria-labelledby="form-checkOut" data-parent="#accordion">
+                                        <div class="card-body">
+                                                
+                                                  <%= form_for @order, url: checkout_path do |f| %>
+                                                        <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                          
+                                                          <%= f.text_field :first_name, :class => 'lala',  placeholder: "Your First Name" %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                         
+                                                          <%= f.text_field :last_name, :class => 'lala',  placeholder: "Your Last Name" %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                       
+                                                          <%= f.text_field :mobile_number, :class => 'lala',  placeholder: "Your Valid Mobile Number", :required => true %>
+                                                       
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                     
+                                                          <%= f.text_field :email, :class => 'lala',  placeholder: "Your Email Address" %>
+                                                      
+                                                        </div>
+                                                    </div>
+                                                        <div class="form-group">
+                                                                <div class="d-flex justify-content-between">
+                                                        
+                                                          <div name="shippingadd">
+                                                          <%= f.text_field :delivery_address, :class => 'lala',  placeholder: "Complete Delivery Addresss", name: "shippingadd", :required => true %>
+                                                        </div>
+                                                      </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                       
+                                                          <div name="shippingcity">
+                                                          <%= f.text_field :city, :class => 'lala',  placeholder: "Delivery City", name: "shippingcity", :required => true %>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                            
+                                                          <div name="shippingpin">
+                                                          <%= f.text_field :pincode, :class => 'lala',  placeholder: "Pincode", name: "shippingpin", :required => true %>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+
+                                                   
+
+                                                    <div class="trackit" style="display: none;">
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                          Tracking
+                                                          <%= f.select :tracking, ['Order Checking', 'Order Recived', 'Quality Check', 'Out for delivery', 'Shipment Completed'  ] %>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+<input type="hidden" id="paid_amount" name="paid_amount[amount]" value="" />
+
+
+
+
+
+                                                    
+
+                                                   
+
+
+
+
+
+
+                                                            
+                                                      
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                                     <div class="mover">
+                                                              <%= f.submit "Save & Continue", class: "btn" %>
+                                                              </div>
+                                                              <% end %>
+                    </div>
+
+                </div>
+                <div class="col col-md-4">
+                    <div class="box">
+                        <ul class="d-flex justify-content-between">
+                            <li>
+                                <p>Item Total</p>
+                            </li>
+                            <li>
+                                <strong>Rs. <%= current_cart.sub_total %></strong>
+                            </li>
+                        </ul>
+                        <ul class="d-flex justify-content-between">
+                                <li>
+                                    <p>Shipping &amp; Handling <span class="text-color">(free)</span></p>
+                                </li>
+                                <li>
+                                    <strong >Rs. 0</strong>
+                                </li>
+                            </ul>
+                            <hr>
+                            <ul class="d-flex justify-content-between">
+                                    <li>
+                                        <p>You Pay
+                                            <br>
+                                            <span class="text-muted"><small>(Including all Taxes)</small></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                            <strong id="amount">Rs. <%= current_cart.sub_total %></strong>
+                                        </li>
+                                </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+.lala {
+    color: #999;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+
+    border: 2px solid #999;
+    border-radius: 25px;
+}
+.btn {
+    color: #ffffff;
+    background-color: #e96a19;
+}
+.mover {
+position: relative;
+padding-left: 0px;
+padding-bottom: 10px;
+}
+</style>
+
+<script type="text/javascript">
+var amount = $("#amount").text().slice(4, 10);
+$("#paid_amount").val(amount);
+// alert(amount);
+</script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

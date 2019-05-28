@@ -1,0 +1,5 @@
+<% if object.area.present? %> 
+<%= select_tag 'product[area]', options_for_select(Area.all.map { |k| [k.name, k.id] }, :selected => Area.find(object.area), :include_blank => 'None'), { data: { enumeration: true} } %>
+<% else %>
+<%= select_tag 'product[area]', options_for_select(Area.all.map { |k| [k.name, k.id] }, :include_blank => 'None'), { data: { enumeration: true} } %>
+<% end %>

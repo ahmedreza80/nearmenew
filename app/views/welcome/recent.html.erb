@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 50%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+
+
+<body>
+    
+    
+
+
+
+    <!--============================= DETAIL =============================-->
+    
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 responsive-wrap">
+                    <div class="row detail-filter-wrap">
+                        <div class="col-md-4 featured-responsive">
+                            <div class="detail-filter-text">
+                                <p>Searched your area For <span>Recent</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-8 featured-responsive">
+                            <% @posts.each do |post| %>
+
+                        </div>
+                    </div>
+                    <div class="row light-bg detail-options-wrap">
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href="detail.html">
+                                    <img src="<%= post.image %>" class="img-fluid" alt="#">
+                                    <span class="featured-rating-orange ">Near You</span>
+                                    <div class="featured-title-box">
+                                        <h6><%= post.title %></h6>
+                                        <p><%= post.wtype %> </p> <span> </span>
+                                       
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p><%= post.location %></p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p><%= post.contact %></p>
+                                            </li>
+                                            <li><span class="icon-link"></span>
+                                                <p><%= post.web %></p>
+                                            </li>
+
+                                        </ul>
+                                        
+                                        <div class="bottom-icons">
+                                           <%= link_to 'Show', post, class: "btn btn-outline-danger btn-contact" %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 responsive-wrap map-wrap">
+                    <div class="map-fix">
+                        <!-- data-toggle="affix" -->
+                        <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
+                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="14"></div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END DETAIL -->
+
+
+
+
+
+    <!-- jQuery, Bootstrap JS. -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/jquery-3.2.1.min.js"></script>
+    <script src="/assets/popper.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+
+
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1G4zT9BwoJ01DBn77eY-LMpmU08pVwcw&callback=initMap">
+    </script>
+
+</body>
+
+
+
+</html>
+
+
+

@@ -1,0 +1,88 @@
+<head>
+    <link rel="stylesheet" href="/assets/login.css">
+</head>
+<br />
+<br />
+<div class="well well-small">
+  <br>
+    <h1>Check Out </h1>
+  <hr class="soften"/>  
+
+
+<div class="container">
+
+
+
+  
+
+  <table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+
+                  <th>Unit price</th>
+                  <th>Qty </th>
+                  <th>Remove</th>
+        </tr>
+              </thead>
+              <% @items.each do |item| %>
+              <tbody>
+                <tr>
+                  <td><img width="100" src="<%= item.product.image %>" alt=""></td>
+                  <td><%= item.product.name %><br><%= item.product.description %></td>
+                  <td> Rs. <%= item.price %> X</td>
+                  <td><span class="shopBtn"><span class="icon-ok"><%= item.quantity %></span></span> </td>
+
+
+                  
+                  
+                  <td>
+          <%= form_for item, method: :delete do |f| %>
+            <%= f.submit "Remove" %>
+          <% end %>
+        </div>
+        </td>
+                 
+                </tr>
+                
+        </tbody>
+        <% end %>
+        <tr>
+                  <td colspan="4" class="alignR">Total:  </td>
+                  <td> Rs. <%= current_cart.sub_total %></td>
+                </tr>
+            </table><br/>
+                  </div>
+                  </div>
+
+
+
+
+
+
+                  <div class="mover">
+                  <%= link_to 'Checkout', checkout_path, class: "btn" %>
+                  </div>
+
+
+
+
+                  <style>
+                  .btn {
+    color: #ffffff;
+    background-color: #e96a19;
+}
+.mover {
+position: relative;
+padding-left: 100px;
+padding-bottom: 10px;
+}
+                  </style>
+
+
+
+
+
+
+

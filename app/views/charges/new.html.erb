@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/checkout.css">
+    <title>Check Out</title>
+  </head>
+  <body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="/assets/logo.png" alt="" class="img-fluid"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div>
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                                <i class="fa fa-cart-arrow-down d-block" aria-hidden="true"></i>
+                        <p><span class="text-color">Cart ------------ Delivery &amp; Billing Address ------------ Payment</span>
+                         </p>
+                    </li>
+                    <li class="nav-item">
+                        <div class="user">
+                        </div>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </nav>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col col-md-8">
+                    <div class="order-summary">
+                            <div id="accordion">
+                                    <div class="card mb-1">
+                                      <div class="card-header" id="summary">
+                                        <h5 class="mb-0">
+                                          <button class="btn" data-toggle="collapse" data-target="#one" aria-expanded="true" aria-controls="one">
+                                                <strong>Need Help?</strong>
+                                                
+                                          </button>
+                                        </h5>
+                                      </div>
+                                  
+                                      <div id="one" class="collapse" aria-labelledby="summary" data-parent="#accordion">
+                                        <div class="card-body">
+                                              <div class="container">
+                                                  <div class="col col-md-8">
+                                                    <div class="box"> 
+                                                        <div class="row">
+                                                                <div class="col-md-5">
+                                                                    <img src="/assets/help.png" alt="" class="img-fluid">
+                                                                </div>
+                                                                <div class="col col-md-7">
+                                                                    <ul>
+                                                                        <li>Need Help With Delivery.</li>
+                                                                        <li>If you need any help regarding delivery.</li>
+                                                                        <li><span class="text-color"><a href="/welcome/contact">Contact Us</a></span></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                    </div>
+
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    </div>
+
+                    <div class="form-checkOut">
+                            <div id="accordion">
+                                    <div class="card">
+                                      <div class="card-header" id="form-checkOut">
+                                        <h5 class="mb-0">
+                                          <button class="btn" data-toggle="collapse" data-target="#two" aria-expanded="true" aria-controls="two">
+                                                <strong class="text-uppercase">Select Payment Method</strong>
+                                          </button>
+                                        </h5>
+                                      </div>
+                                  
+                                      <div id="two" class="collapse show" aria-labelledby="form-checkOut" data-parent="#accordion">
+                                        <div class="card-body">
+                                                
+                                                  <form action="/charges" method="POST" style="margin-top: 5%;text-align: center;">
+<!-- Note that the amount is in paise = 50 INR -->
+<script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_oaBo3b5l4naKhW"
+    data-amount="<%=params[:amount].to_i*100 %>"
+    data-buttontext="Complete Payment"
+    data-name="NearClick"
+    data-description="India's No.1 Local Marketpace"
+    data-image="http://www.dennydots.com/assets/logo.png"
+    data-prefill.name="<%=params[:first_name]%>"
+    data-prefill.email="<%=params[:email]%>"
+    data-theme.color="#F37254"
+></script>
+<input type="hidden" value="Hidden Element" name="hidden">
+</form>
+<a href="/charges">
+                                        <h5 class="mb-0" style="text-align:center;">
+                                          OR
+                                          <br>
+                                          <button class="btn" >
+                                                <strong class="text-uppercase">Pay On Delivery</strong>
+                                          </button>
+                                        </h5></a>
+                                                      
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
+
+

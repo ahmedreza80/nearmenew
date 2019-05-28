@@ -1,0 +1,110 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<%= render 'welcome/sub' %>
+<br>
+<br>
+<br>
+<body>
+
+
+
+    <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="text-align:center;"><%= @shop.name %>'s Contact Info</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <h3><b>Location:</b></h3><br>
+         <p><%= @shop.location %></p>
+         <hr>
+
+         <h3><b>Phone:</b></h3><br>
+         <p><%= @shop.phone %></p>
+         <hr>
+
+         <h3><b>Website:</b></h3><br>
+         <p><%= @shop.web %></p>
+         <hr>
+
+         <h3><b>Email:</b></h3><br>
+         <p><%= @shop.email %></p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div id="colorlib-page">
+
+    <div id="colorlib-main">
+      <div class="hero-wrap js-fullheight" style="background-image: url(/assets/bg_1.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="js-fullheight d-flex justify-content-center align-items-center">
+          <div class="col-md-8 text text-center">
+            <div class="img mb-4"><img src="<%= @shop.imageshop %>" style="width:150px; height:150px; border-radius: 50%;"></div>
+            <div class="desc">
+              <h2 class="subheading"><%= @shop.category %></h2>
+              <h1 class="mb-4"><%= @shop.name %></h1>
+              <p class="mb-4"><%= @shop.description %></p>
+              <p class="btn-custom" data-toggle="modal" data-target="#myModal">Contact Shop </p>
+              <% if current_user=(@shop.user) %>
+<%= link_to 'Edit', edit_shop_path(@shop), class: 'btn btn-danger' %>
+<% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-7 heading-section text-center">
+            <h2 class="mb-4">Products</h2>
+            <p>All the products listed here are directly sold by <%= @shop.name %> and NearClick is just there delivery partner, we deliver the product as it is without opening the package.</p>
+          </div>
+        </div>
+        <div class="row">
+
+
+
+
+
+              <% @shop.products.each do |product| %>
+
+          <div class="col-md-4">
+            <div class="blog-entry">
+              <a href="#" class="img img-2"><img src="<%= product.image %>" style="width:300px; height:250px;"> </a>
+              <div class="text text-2 pt-2 mt-3">
+                <span class="category mb-3 d-block"><a href="#"><%= product.name %></a></span>
+                <h3 class="mb-4"><a href="#"><%= product.category %></a></h3>
+                <h3 class="mb-4"><a href="#">Rs: <%= product.price %></a></h3>
+                <p class="mb-4"><%= product.description %></p>
+                
+                <div class="meta-wrap align-items-center">
+                  
+                  <div class="half">
+                
+                    <p><%= link_to "View Product", product, class: "btn btn-success" %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

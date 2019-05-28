@@ -1,0 +1,163 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<%= render 'welcome/sub' %>
+<style>
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+<div class="dark-bg sticky-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                            <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; </span>
+                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/fashion">Fashion</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/electronics">Electronics</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/furniture">Furniture</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/kitchen">Kitchen</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/grocery">Grocery</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/restraunts">Retraunts</a>
+                                    </li>
+
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="/welcome/events">Events</a>
+                                    </li>
+                                    
+                                   
+                                    <% if user_signed_in? %>
+                                    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-outline-light top-btn" %></li>
+                                    <% else %>
+                                    <li><a href="/users/sign_in" class="btn btn-outline-light top-btn">SignUp/SignIn</a></li>
+                                   <% end %>
+                                </ul>
+                            </div>
+                            <li class="nav-item active">
+                                        <a class="nav-link" href="/"><img src="/assets/search.png" style="width:30px; height:30px; margin-bottom:8px;"></a>
+                                    </li>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="navbar-brand" style="text-align:center;" href="/">NearClick</a>
+  <br>
+  <% if user_signed_in? %>
+  <p style="text-align:center;">Welcome <%= current_user.username %></p>
+  <% else %>
+  <p style="text-align:center;">Welcome Guest</p>
+  <% end %>
+  <% if current_user&.shop %>
+  <a href="/products/new">Add Product</a>
+  <%= link_to 'Manage Shop', current_user.shop %>
+  <% else %>
+  <a href="#"><span>0</span> Your Cart</a>
+  <a href="#">Wishlist</a>
+  <% end %>
+  <a href="/welcome/about">About</a>
+  <a href="/welcome/contact">Contact</a>
+</div>
+<h1>Editing Shop</h1>
+
+<%= render 'form', shop: @shop %>
+
+<div class="broke" style="text-align:center;">
+<%= link_to 'Back', shops_path, class: "btn btn-danger" %>
+</div>
+ <footer class="main-block dark-bg" style="padding-bottom:30px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy; 2019  Nearclick. All rights reserved. </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <ul>
+                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                            <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                            <li><a href="#"><span class="ti-instagram"></span></a></li>
+                        </ul>
+
+                        <ul>
+                         <li class="nav-item active">
+                                        <a class="nav-link" style="font-size:30px; font-weight:700; color:#ffffff" href="/welcome/about">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" style="font-size:30px; font-weight:700; color:#ffffff" href="/welcome/contact">Contact</a>
+                                    </li>
+
+                                </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+

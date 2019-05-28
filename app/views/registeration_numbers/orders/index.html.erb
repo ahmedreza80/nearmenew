@@ -1,0 +1,63 @@
+<head>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+</head>
+
+<%= render 'welcome/sub' %>
+<div class="container" style="margin-top:100px;">
+    <div class="well">
+        <p style="text-align:center;">Welcome <%= current_user.email %></p>
+        <p style="text-align:center;"> You are our superhero and for today you have the following super tasks! </p>
+    </div>
+
+    <div class="content_box">
+        <% @shops.each do |shop| %>
+        <li><a href="#"><%= shop.id %> :<%= shop.name %></a>
+            <div class="right_bar ">
+                <div class="tab-content ">
+                    <div class="tab-pane fade show active" id="lorem" role="tabpanel">
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Customer Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><% shop.products.each do |product| %>
+                                        <%= product.name %> </td>
+                                        <td><% product.orders.each do |order| %>
+                                            <%= order.first_name %> <%= order.last_name %>
+                                        </td>
+
+                                        <td>
+                                            <%= order.mobile_number %>
+                                        </td>
+                                        <td>
+                                            <%= order.delivery_address %>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+        <% end %>
+        <% end %>

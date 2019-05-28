@@ -1,0 +1,2 @@
+module RegisterationNumbersHelper
+end

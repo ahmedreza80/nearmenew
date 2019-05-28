@@ -1,0 +1,21 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<%= render 'welcome/sub' %>
+<body>
+<h2 style="text-align: center;"><b>Editing Listing</b></h2>
+<p style="text-align: center;"><b>*You can add products or service that you offer in this form. Businesses like restraunts also come in the service category.</b></p>
+<style>
+h2{
+	color: #fff;
+}
+p{
+	color: #fff;
+}
+body {
+	background-color: #252A33;
+}
+</style>
+<%= render 'form', product: @product %>
+</body>
+

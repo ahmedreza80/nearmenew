@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+<title>Shipment Track Widget Flat Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Shipment Track Widget Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href="/assets/tro.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+	<% if @order.tracking == "Order Recived" %>
+<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Denny Dots Originals</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Expected Time : <span>Within 10 Days</span></p>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	<div class="content3">
+        <div class="shipment">
+			<div class="confirm">
+                <div class="imgcircle">
+                    <img src="/assets/confirm.png" alt="confirm order">
+            	</div>
+				<span class="line"></span>
+				<p>Order Recived</p>
+			</div>
+
+			<div class="quality">
+				<div class="imgcircle">
+                	<img src="/assets/quality.png" alt="quality check">
+            	</div>
+				<span class="line"></span>
+				<p>Quality Check</p>
+			</div>
+			<div class="dispatch">
+				<div class="imgcircle">
+                	<img src="/assets/dispatch.png" alt="dispatch product">
+            	</div>
+				<span class="line"></span>
+				<p>Out For Delivery</p>
+			</div>
+			<div class="delivery">
+				<div class="imgcircle">
+                	<img src="/assets/delivery.png" alt="delivery">
+				</div>
+				<p>Shipment Completed</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @order.tracking == "Quality Check" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Denny Dots Originals</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Expected Time : <span>Within 10 Days</span></p>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	<div class="content3">
+        <div class="shipment">
+			<div class="confirm">
+                <div class="imgcircle">
+                    <img src="/assets/confirm.png" alt="confirm order">
+            	</div>
+				<span class="line"></span>
+				<p>Order Recived</p>
+			</div>
+
+			<div class="qualitytwo">
+				<div class="imgcircle">
+                	<img src="/assets/quality.png" alt="quality check">
+            	</div>
+				<span class="line"></span>
+				<p>Quality Check</p>
+			</div>
+			<div class="dispatch">
+				<div class="imgcircle">
+                	<img src="/assets/dispatch.png" alt="dispatch product">
+            	</div>
+				<span class="line"></span>
+				<p>Out for delivery</p>
+			</div>
+			<div class="delivery">
+				<div class="imgcircle">
+                	<img src="/assets/delivery.png" alt="delivery">
+				</div>
+				<p>Shipment Completed</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+		<% end %>
+
+
+
+
+
+
+
+		<% if @order.tracking == "Out for delivery" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Denny Dots Originals</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Expected Time : <span>Within 10 Days</span></p>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	<div class="content3">
+        <div class="shipment">
+			<div class="confirm">
+                <div class="imgcircle">
+                    <img src="/assets/confirm.png" alt="confirm order">
+            	</div>
+				<span class="line"></span>
+				<p>Order Recived</p>
+			</div>
+
+			<div class="qualitytwo">
+				<div class="imgcircle">
+                	<img src="/assets/quality.png" alt="quality check">
+            	</div>
+				<span class="line"></span>
+				<p>Quality Check</p>
+			</div>
+			<div class="dispatchtwo">
+				<div class="imgcircle">
+                	<img src="/assets/dispatch.png" alt="dispatch product">
+            	</div>
+				<span class="line"></span>
+				<p>Out for delivery</p>
+			</div>
+			<div class="delivery">
+				<div class="imgcircle">
+                	<img src="/assets/delivery.png" alt="delivery">
+				</div>
+				<p>Shipment Completed</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+		<% end %>
+
+
+
+
+
+
+
+
+
+		<% if @order.tracking == "Shipment Completed" %>
+	<div class="content">
+	<div class="content1">
+		<h2>Order Details</h2>
+	</div>
+	<div class="content2">
+		<%if @order.first_name and @order.last_name%>
+			<div class="content2-header1">
+				<p>Name : <span><%= @order.first_name %> <%= @order.last_name %> </span></p>
+			</div>
+		<%end%>
+		<%if @order.mobile_number %>
+		<div class="content2-header1">
+			<p>Contact Number : <span><%= @order.mobile_number%></span></p>
+		</div>
+		<%end%>
+		<%if @order.email %>		
+		<div class="content2-header1">
+			<p>Email : <span><%= @order.email%></span></p>
+		</div>
+		<%end%>
+		<%if @order.tracking %>				
+		<div class="content2-header1">
+			<p>Tracking status : <span><%= @order.tracking%></span></p>
+		</div>
+		<%end%>
+		<%if @order.created_at %>				
+		<div class="content2-header1">
+			<p>Order Placed Date : <span><%= @order.created_at%></span></p>
+		</div>
+		<%end%>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div class="header">
+	<h1>Shipment Track</h1>
+</div>
+<div class="content">
+	<div class="content1">
+		<h2>Order Tracking: Order No: <%= params[:order_number] if params[:order_number]%></h2>
+	</div>
+	<div class="content2">
+		<div class="content2-header1">
+			<p>Shipped Via : <span>Denny Dots Originals</span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Status : <span><%= @order.tracking %></span></p>
+		</div>
+		<div class="content2-header1">
+			<p>Expected Time : <span>Within 10 Days</span></p>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	
+	<div class="content3">
+        <div class="shipment">
+			<div class="confirm">
+                <div class="imgcircle">
+                    <img src="/assets/confirm.png" alt="confirm order">
+            	</div>
+				<span class="line"></span>
+				<p>Order Recived</p>
+			</div>
+
+			<div class="qualitytwo">
+				<div class="imgcircle">
+                	<img src="/assets/quality.png" alt="quality check">
+            	</div>
+				<span class="line"></span>
+				<p>Quality Check</p>
+			</div>
+			<div class="dispatchtwo">
+				<div class="imgcircle">
+                	<img src="/assets/dispatch.png" alt="dispatch product">
+            	</div>
+				<span class="line"></span>
+				<p>Out for delivery</p>
+			</div>
+			<div class="deliverytwo">
+				<div class="imgcircle">
+                	<img src="/assets/delivery.png" alt="delivery">
+				</div>
+				<p>Shipment Completed</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+		<% end %>
+
+
+
+

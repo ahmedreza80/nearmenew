@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+    padding-top: 15px;
+}
+.navbar-brand {
+    width: 40%;
+    padding-left: 25px;
+}
+
+.navbar-brand img {
+    display: inline;
+    width: 200px;
+}
+
+.nav-item {
+    font-size: 14px;
+    line-height: 10px;
+    color: rgb(153, 149, 149);
+}
+
+.nav-item .fa {
+    font-size: 30px;
+    color: #e96a19;
+    margin-left: 150px;
+    margin-bottom: 5px;
+}
+
+
+.nav-item .user {
+    margin: 15px 0px 0 200px;
+}
+
+.text-color {
+    color: #e96a19;
+}
+
+.box {
+    border: 1px solid #ccc;
+    color: rgb(83, 81, 81);
+}
+
+.box ul {
+    list-style: none;
+    padding-inline-start: 0;
+    padding: 5px 15px 2px 15px;
+    margin: 0;
+}
+
+.box li {
+    padding: 0;
+}
+
+.btn {
+    color: #e96a19;
+    background-color: transparent;
+}
+
+form .form-control {
+    width: 60%;
+    border-radius: 0;
+}
+.form-control::placeholder {
+    font-size: 10px;
+}
+
+.form-check {
+    margin-left: 150px;
+}
+
+.form-check label {
+    font-size: 14px;
+}
+
+form .btn {
+    background-color: #e96a19;
+    color: #fff;
+    border-radius: 0;
+    margin-left: 150px;
+    padding: 10px 80px;
+}

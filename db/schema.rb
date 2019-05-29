@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20190526093611) do
     t.integer "user_id"
     t.string "state"
     t.string "city"
+    t.string "area"
     t.integer "registeration_number_id"
     t.index ["registeration_number_id"], name: "index_shops_on_registeration_number_id"
     t.index ["user_id"], name: "index_shops_on_user_id"

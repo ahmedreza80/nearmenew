@@ -1,63 +1,50 @@
-<head>
-
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 
+
+<!DOCTYPE html>
+<html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  
-</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-<%= render 'welcome/sub' %>
-<div class="container" style="margin-top:100px;">
-    <div class="well">
+<div class="w3-container">
+<div class="well">
         <p style="text-align:center;">Welcome <%= current_user.email %></p>
         <p style="text-align:center;"> You are our superhero and for today you have the following super tasks! </p>
     </div>
+<% @shops.each do |shop| %>
+        <li><a href="#"><%= shop.id %> :<%= shop.name %></a></li>
+  <table class="w3-table-all">
+    <thead>
+      <tr class="w3-red">
+        <th>Product Name</th>
+        <th>Customer Name</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    
+    <tr>
+        <% shop.products.each do |product| %>
+      <td><%= product.name %></td>
+    </tr>
+    <tr>
+        <% product.orders.each do |order| %>
+      <td><%= order.first_name %></td>
+    </tr>
+    <tr>
+      <td><%= order.mobile_number %></td>
+    </tr>
 
-    <div class="content_box">
-        <% @shops.each do |shop| %>
-        <li><a href="#"><%= shop.id %> :<%= shop.name %></a>
-            <div class="right_bar ">
-                <div class="tab-content ">
-                    <div class="tab-pane fade show active" id="lorem" role="tabpanel">
+    <tr>
+      <td><%= order.delivery_address %></td>
+    </tr>
+  </table>
+                   <% end %>
+                 <% end %>
+                 <% end %>
+</div>
 
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th>Customer Name</th>
-                                    <th>Phone Number</th>
-                                    <th>Address</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><% shop.products.each do |product| %>
-                                        <%= product.name %> </td>
-                                        <td><% product.orders.each do |order| %>
-                                            <%= order.first_name %> <%= order.last_name %>
-                                        </td>
-
-                                        <td>
-                                            <%= order.mobile_number %>
-                                        </td>
-                                        <td>
-                                            <%= order.delivery_address %>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% end %>
+</body>
+</html> 

@@ -71,9 +71,10 @@
                                         <div class="select-wapper">
                                         <%= select_tag :city, options_for_select([["Select a City",""]]), :id => 'city' %>
                                         </div>
-                                        <div class="select-wapper">
+                                        <div class="select-wapper" style="position:relative;">
                                         <%= select_tag :area, options_for_select([["Select a Area",""]]), :id => 'area' %>
                                         </div>
+                                        <br>
                                         <a href="/welcome/search" class="btn-form search-btn">SEARCH<i class="pe-7s-angle-right"></i></a>
                                     </div>
                                 </form>
@@ -87,11 +88,15 @@
     </section>
 
 
-                <div class="col-md-5">
+                <div class="row justify-content-center">
+               
                     <div class="styled-heading">
-                        <h3>What are you finding?</h3>
+                      <h3>
+                        <marquee behavior="scroll" direction="left">Badshah coming to St. Xaviers on 10th June. </marquee>
+                        </h3>
                     </div>
-                </div>
+               
+            </div>
 
     <section class="section-division mb-1">
     <div class="container my-1">
@@ -556,11 +561,13 @@ function closeNav() {
     <section class="main-block">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-5">
+               
                     <div class="styled-heading">
-                        <h3>What do you need to find?</h3>
+                      <h3>
+                        <marquee behavior="scroll" direction="left">Badshah coming to St. Xaviers on 10th June. </marquee>
+                        </h3>
                     </div>
-                </div>
+               
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -956,7 +963,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "Please select")
+          .attr("placeholder", "Select State")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({
@@ -1090,7 +1097,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "Please select")
+          .attr("placeholder", "Select District")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({
@@ -1221,7 +1228,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "Please select")
+          .attr("placeholder", "Select Area")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({

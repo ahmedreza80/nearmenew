@@ -8,21 +8,28 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="/assets/checkout.css">
+    <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <script src="/assets/bootstrap.min.js"></script>
     <title>Check Out</title>
   </head>
   <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-top:100px; position:relative;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="" alt="" class="img-fluid"></a>
                 
               
                 <div>
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                                 <i class="fa fa-cart-arrow-down d-block" aria-hidden="true"></i>
-                        <p><span class="text-color" style="position:relative;">Cart ------------ Delivery &amp; Billing Address ------------ </span>
+                        <p><span class="text-color">Cart ------------ Delivery &amp; Billing Address ------------ </span>
                          Payment</p>
                     </li>
-                  
+                    <li class="nav-item">
+                        <div class="user">
+                            <span class="h4"> Hello</span>
+                        </div>
+                    </li>
                   </ul>
                   
                 </div>
@@ -87,92 +94,58 @@
                                                   <%= form_for @order, url: checkout_path do |f| %>
                                                         <div class="form-group">
                                                             <div class="d-flex justify-content-between">
-                                                          
-                                                          <%= f.text_field :first_name, :class => 'lala',  placeholder: "Your First Name" %>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <div class="d-flex justify-content-between">
                                                          
-                                                          <%= f.text_field :last_name, :class => 'lala',  placeholder: "Your Last Name" %>
+                                                          <%= f.text_field :first_name, :class => 'lala', placeholder: "Your First Name" %>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                             <div class="d-flex justify-content-between">
-                                                       
-                                                          <%= f.text_field :mobile_number, :class => 'lala',  placeholder: "Your Valid Mobile Number", :required => true %>
-                                                       
+                                                          
+                                                          <%= f.text_field :last_name, :class => 'lala', placeholder: "Your Last Name" %>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                             <div class="d-flex justify-content-between">
-                                                     
-                                                          <%= f.text_field :email, :class => 'lala',  placeholder: "Your Email Address" %>
-                                                      
+                                                          
+                                                          <%= f.text_field :mobile_number, :class => 'lala', placeholder: "Your Valid Mobile Number" %>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="d-flex justify-content-between">
+                                                        
+                                                          <%= f.text_field :email, :class => 'lala', placeholder: "Your Email Address" %>
                                                         </div>
                                                     </div>
                                                         <div class="form-group">
                                                                 <div class="d-flex justify-content-between">
-                                                        
-                                                          <div name="shippingadd">
-                                                          <%= f.text_field :delivery_address, :class => 'lala',  placeholder: "Complete Delivery Addresss", name: "shippingadd", :required => true %>
+                                                         
+                                                          <%= f.text_field :delivery_address, :class => 'lala', placeholder: "Complete Delivery Addresss" %>
                                                         </div>
-                                                      </div>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <div class="d-flex justify-content-between">
                                                        
-                                                          <div name="shippingcity">
-                                                          <%= f.text_field :city, :class => 'lala',  placeholder: "Delivery City", name: "shippingcity", :required => true %>
-                                                        </div>
+                                                          <%= f.text_field :city, :class => 'lala', placeholder: "Delivery City" %>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
                                                             <div class="d-flex justify-content-between">
-                                            
-                                                          <div name="shippingpin">
-                                                          <%= f.text_field :pincode, :class => 'lala',  placeholder: "Pincode", name: "shippingpin", :required => true %>
-                                                        </div>
+                                                          <%= f.text_field :pincode, :class => 'lala', placeholder: "Pincode" %>
                                                         </div>
                                                     </div>
-
-                                                   
-
-                                                    <div class="trackit" style="display: none;">
-                                                    <div class="form-group">
-                                                            <div class="d-flex justify-content-between">
-                                                          Tracking
-                                                          <%= f.select :tracking, ['Order Checking', 'Order Recived', 'Quality Check', 'Out for delivery', 'Shipment Completed'  ] %>
-                                                        </div>
-                                                    </div>
-                                                  </div>
-<input type="hidden" id="paid_amount" name="paid_amount[amount]" value="" />
-
-
-
-
 
                                                     
-
-                                                   
-
-
-
-
-
-
-                                                            
+                                                        <div class="dim" style="padding:0; margin:0;">
+                                                              <%= f.submit "Save & Continue", class: "btn-success" %>
+                                                            </div>
+                                                              <% end %>
                                                       
                                         </div>
                                       </div>
                                     </div>
                                     </div>
-                                     <div class="mover">
-                                                              <%= f.submit "Save & Continue", class: "btn" %>
-                                                              </div>
-                                                              <% end %>
                     </div>
 
                 </div>
@@ -191,7 +164,7 @@
                                     <p>Shipping &amp; Handling <span class="text-color">(free)</span></p>
                                 </li>
                                 <li>
-                                    <strong >Rs. 0</strong>
+                                    <strong>Rs. <%= current_cart.sub_total %></strong>
                                 </li>
                             </ul>
                             <hr>
@@ -203,7 +176,7 @@
                                         </p>
                                     </li>
                                     <li>
-                                            <strong id="amount">Rs. <%= current_cart.sub_total %></strong>
+                                            <strong>Rs. <%= current_cart.sub_total %></strong>
                                         </li>
                                 </ul>
                     </div>
@@ -211,32 +184,17 @@
             </div>
         </div>
 
-        <style>
+<style>
 .lala {
     color: #999;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
     padding: 10px;
-
     border: 2px solid #999;
     border-radius: 25px;
 }
-.btn {
-    color: #ffffff;
-    background-color: #e96a19;
-}
-.mover {
-position: relative;
-padding-left: 0px;
-padding-bottom: 10px;
-}
 </style>
 
-<script type="text/javascript">
-var amount = $("#amount").text().slice(4, 10);
-$("#paid_amount").val(amount);
-// alert(amount);
-</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

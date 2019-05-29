@@ -422,7 +422,7 @@ function closeNav() {
   <% end %>
 
   <% if current_user && current_user.is_agent? %>
-  <a href="/registeration_numbers">New registeration number</a>
+  <a href="/registeration_numbers">Agent Panel</a>
   <% end %>
   <% if current_user&.shop %>
   <a href="/products/new">Add Product</a>
@@ -591,7 +591,7 @@ function closeNav() {
   <a href="#">Wishlist</a>
   <% end %>
   <% if current_user && current_user.is_agent? %>
-  <a href="/registeration_numbers">New registeration number</a>
+  <a href="/registeration_numbers">Agent Panel</a>
   <% end %>
   <a href="/welcome/about">About</a>
   <a href="/welcome/contact">Contact</a>

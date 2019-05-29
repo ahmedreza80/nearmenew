@@ -11,11 +11,7 @@ class OrdersController < ApplicationController
 		@order = current_cart.order
 		if @order.update_attributes(order_params.merge(status:'open'))
 			session[:cart_token] = nil
-			# redirect_to  "/charges/new", locale: {order: @order}
-			if params[:order]
-            	# redirect_to new_charge_path(:order => params[:order])
-            	redirect_to controller: 'charges', action: 'new', first_name: params[:order][:first_name],last_name: params[:order][:last_name],mobile_number: params[:order][:mobile_number],email: params[:order][:email],delivery_address: params[:order][:delivery_address],city: params[:order][:city],pincode: params[:order][:pincode],tracking: params[:order][:tracking], amount: params[:paid_amount][:amount], order_id: @order.id
-        	end
+			redirect_to action: 'show'
 		else
 			render:new
 		end

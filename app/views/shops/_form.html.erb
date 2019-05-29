@@ -1,116 +1,94 @@
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<%= render 'welcome/sub' %>
 <%= form_with(model: shop, local: true) do |form| %>
-  <% if shop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
-
-      <ul>
-      <% shop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<% if shop.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+  <ul>
+    <% shop.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<body>
+  <form >
+    <h1>Add Your Shop</h1>
+    <fieldset>
+      <legend><span class="number">1</span>Your basic info</legend>
+      <label for="name">Name:</label>
+      <%= form.text_field :name, id: :shop_name %>
+      <label for="mail">Email:</label>
+      <%= form.text_field :email, id: :shop_email %>
+      <label for="password">Description:</label>
+      <%= form.text_area :description, id: :shop_description %>
+      <label>Image:</label>
+      <%= form.file_field :imageshop, id: :shop_imageshop %>
+    </fieldset>
+    <fieldset>
+      <legend><span class="number">2</span>Important Infos</legend>
+      <label for="bio">Location:</label>
+      <%= form.text_field :location, id: :shop_location %>
+    </fieldset>
+    <fieldset>
+      <label for="bio">Registeration Number:</label>
+      <%= form.text_field :registeration_number, id: :registeration_number %>
+    </fieldset>
+    <fieldset>
+      <label for="job">Website:</label>
+      <%= form.text_field :web, id: :shop_web %>
+      <label>Phone Number:</label>
+      <%= form.text_field :phone, id: :shop_phone %><br><label class="light" for="business">Business Type</label>
+      <%= form.select :busness, ['Service Provider', 'Products Based Business'] %><label class="light" for="design">Business Category</label><br>
+      <%= form.select :category, ['Electronics', 'Fashion', 'Furniture', 'Kitchen Stores', 'Restraunts', 'Hotels', 'General Stores', 'Grocery Stores'] %>
+      <label>Please select a State:</label>
+      <%= form.select :state, options_for_select([["Select a State",""]] + State.all.map { |c| [c.name, c.id] },selected:  shop.state ), {}, id: "state"%>
+      <label>Please select a District:</label>
+      <%= form.select :city, options_for_select([["Select a District",""]]),{}, :id => 'city' %>
+      <label>Please select a Area:</label>
+      <%= form.select :area, options_for_select([["Select a Area",""]]),{}, :id => 'area' %>
+    </fieldset>
+    <div class="bobo" style="text-align:center; padding:0; margin:0;">
+      <%= form.submit class: "btn-success" %>
     </div>
-  <% end %>
-
-
-
-
-    <body>
-
-      <form >
-      
-        <h1>Add Your Shop</h1>
-        
-        <fieldset>
-          <legend><span class="number">1</span>Your basic info</legend>
-          <label for="name">Name:</label>
-          <%= form.text_field :name, id: :shop_name %>
-          
-          <label for="mail">Email:</label>
-          <%= form.text_field :email, id: :shop_email %>
-          
-          <label for="password">Description:</label>
-          <%= form.text_area :description, id: :shop_description %>
-          
-          <label>Image:</label>
-          <%= form.file_field :imageshop, id: :shop_imageshop %>
-        </fieldset>
-        
-
-        <fieldset>
-          <%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] },selected:  shop.state ), {}, id: "state", name: "dropdownmain"%>
-          </fieldset>
-            <fieldset>
-<%= form.select :city, options_for_select([["Select a City",""]]),{}, :id => 'city', name: "dropdownmain" %>
-        </fieldset>
-        <fieldset>
-          <label for="bio">Registeration Number:</label>
-          <%= form.text_field :registeration_number, id: :registeration_number %>
-        </fieldset>
-        <fieldset>
-        <label for="job">Website:</label>
-        <%= form.text_field :web, id: :shop_web %>
-        
-          <label>Phone Number:</label>
-         <%= form.text_field :phone, id: :shop_phone %><br><label class="light" for="business">Business Type</label>
-            <%= form.select :busness, ['Service Provider', 'Products Based Business'] %><label class="light" for="design">Business Category</label><br>
-          <%= form.select :category, ['Electronics', 'Fashion', 'Furniture', 'Kitchen Stores', 'Health', 'Hotels', 'Events', 'Grocery'] %>
-        
-        </fieldset>
-        <div class="bobo" style="text-align:center; padding:0; margin:0;">
-    <%= form.submit class: "btn-success" %>
-  </div>
-
-      </form>
-      
-    </body>
+  </form>
+</body>
 </html>
 <% end %>
-
-
 <style>
-*, *:before, *:after {
+  *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
-
-body {
+  }
+  body {
   font-family: 'Nunito', sans-serif;
   color: #384047;
   padding: 0px;
   margin: 0px;
-}
-
-form {
+  }
+  form {
   max-width: 300px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;
   border-radius: 8px;
-}
-
-h1 {
+  }
+  h1 {
   margin: 0 0 30px 0;
   text-align: center;
   color: #000;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-textarea,
-select {
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  textarea,
+  select {
   background: rgba(255,255,255,0.1);
   border: none;
   font-size: 16px;
@@ -123,42 +101,33 @@ select {
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
   margin: 0 4px 8px 0;
-}
-
-select {
+  }
+  select {
   padding: 6px;
   height: 32px;
   border-radius: 2px;
-}
-
-
-
-fieldset {
+  }
+  fieldset {
   margin-bottom: 30px;
   border: none;
-}
-
-legend {
+  }
+  legend {
   font-size: 1.4em;
   margin-bottom: 10px;
-}
-
-label {
+  }
+  label {
   display: block;
   margin-bottom: 8px;
-}
-
-label.light {
+  }
+  label.light {
   font-weight: 300;
   display: inline;
-}
-
-.number {
+  }
+  .number {
   background-color: #5fcf80;
   color: #fff;
   height: 30px;
@@ -170,13 +139,76 @@ label.light {
   text-align: center;
   text-shadow: 0 1px 0 rgba(255,255,255,0.2);
   border-radius: 100%;
-}
-
-@media screen and (min-width: 480px) {
-
-  form {
-    max-width: 480px;
   }
-
-}
+  @media screen and (min-width: 480px) {
+  form {
+  max-width: 480px;
+  }
+  }
 </style>
+<script type="text/javascript">
+var  selectedCity = "";
+<% if shop.city.present? %>
+  selectedCity = <%= shop.city  %>;
+<% end %>
+var  selectedArea = "";
+<% if shop.area.present? %>
+selectedArea = <%= shop.area  %>;
+<% end %>
+$(function() {
+  if ($("select#state").val() == "") {
+    $("select#city option").remove();
+    var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+    $(row).appendTo("select#city");
+   }
+   var $val = $("select#state").val();
+   if($val != ""){
+     getCitiesOfState($val);
+   }
+   
+   $("select#state").change(function() {
+    var id_value_string = $(this).val();
+    if (id_value_string == "") {
+     $("select#city option").remove();
+     var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+     $(row).appendTo("select#city");
+    } else {
+     // Send the request and update city dropdown
+      getCitiesOfState(id_value_string)
+    }
+   });
+
+
+  if ($("select#city").val() == "" && selectedCity == "") {
+    $("select#area option").remove();
+    var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+    $(row).appendTo("select#area");
+   }
+   var $val2 = $("select#city").val();
+   console.log("val________", $val2);
+   if($val2 != "" && selectedCity == ""){
+    getAreasOfCity($val2)
+   }
+   console.log("selected_city________", selectedCity);
+   if (selectedCity != "") {
+    
+    getAreasOfCity(selectedCity)
+   }
+
+    $("select#city").change(function() {
+      var id_value_string = $(this).val();
+      if (id_value_string == "") {
+        $("select#area option").remove();
+        var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+        $(row).appendTo("select#area");
+      } else {
+        // Send the request and update city dropdown
+        getAreasOfCity(id_value_string)
+        
+      }
+    });
+
+
+  });  
+</script>
+

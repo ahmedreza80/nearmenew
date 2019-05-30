@@ -42,7 +42,7 @@
       <label>Please select a State:</label>
       <%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] },selected:  shop.state ), {}, id: "state"%>
       <label>Please select a City:</label>
-      <%= form.select :city, options_for_select([["Select a City",""]] + City.where(state_id: shop.state).map { |c| [c.name, c.id] },selected:  shop.city ),{}, :id => 'city' %>
+      <%= form.select :city, options_for_select([["Select a City",""]] + City.all.map { |c| [c.name, c.id] },selected:  shop.city ),{}, :id => 'city' %>
     </fieldset>
     <div class="bobo" style="text-align:center; padding:0; margin:0;">
       <%= form.submit class: "btn-success" %>
@@ -173,4 +173,3 @@
      });
     });   
 </script>
-

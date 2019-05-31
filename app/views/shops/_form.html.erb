@@ -41,8 +41,10 @@
       <%= form.select :category, ['Electronics', 'Fashion', 'Furniture', 'Kitchen Stores', 'Restraunts', 'Hotels', 'General Stores', 'Grocery Stores'] %>
       <label>Please select a State:</label>
       <%= form.select :state, options_for_select([["Select a state",""]] + State.all.map { |c| [c.name, c.id] },selected:  shop.state ), {}, id: "state"%>
-      <label>Please select a City:</label>
-      <%= form.select :city, options_for_select([["Select a City",""]] + City.where(state_id: shop.state).map { |c| [c.name, c.id] },selected:  shop.city ),{}, :id => 'city' %>
+      <label>Please select a District:</label>
+      <%= form.select :city, options_for_select([["Select a District",""]] + City.all.map { |c| [c.name, c.id] },selected:  shop.city ),{}, :id => 'city' %>
+      <label>Please select an Area:</label>
+      <%= form.select :city, options_for_select([["Select a Area",""]] + Area.all.map { |c| [c.name, c.id] },selected:  shop.area ),{}, :id => 'area' %>
     </fieldset>
     <div class="bobo" style="text-align:center; padding:0; margin:0;">
       <%= form.submit class: "btn-success" %>
@@ -144,32 +146,71 @@
   }
   }
 </style>
+
+
+
 <script type="text/javascript">
-  var  selectedCity;
-  <% if shop.city.present? %>
-    selectedCity = <%= shop.city  %>;
-  <% end %>
-  $(function() {
-    if ($("select#state").val() == "") {
-      $("select#city option").remove();
-      var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
-      $(row).appendTo("select#city");
-     }
-     var $val = $("select#state").val();
-     if($val != ""){
-       getCitiesOfState($val)
-     }
-     
-     $("select#state").change(function() {
+var  selectedCity = "";
+<% if shop.city.present? %>
+  selectedCity = <%= shop.city  %>;
+<% end %>
+var  selectedArea = "";
+<% if shop.area.present? %>
+selectedArea = <%= shop.area  %>;
+<% end %>
+$(function() {
+  if ($("select#state").val() == "") {
+    $("select#city option").remove();
+    var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+    $(row).appendTo("select#city");
+   }
+   var $val = $("select#state").val();
+   if($val != ""){
+     getCitiesOfState($val);
+   }
+   
+   $("select#state").change(function() {
+    var id_value_string = $(this).val();
+    if (id_value_string == "") {
+     $("select#city option").remove();
+     var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
+     $(row).appendTo("select#city");
+    } else {
+     // Send the request and update city dropdown
+      getCitiesOfState(id_value_string)
+    }
+   });
+
+
+  if ($("select#city").val() == "" && selectedCity == "") {
+    $("select#area option").remove();
+    var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+    $(row).appendTo("select#area");
+   }
+   var $val2 = $("select#city").val();
+   console.log("val________", $val2);
+   if($val2 != "" && selectedCity == ""){
+    getAreasOfCity($val2)
+   }
+   console.log("selected_city________", selectedCity);
+   if (selectedCity != "") {
+    
+    getAreasOfCity(selectedCity)
+   }
+
+    $("select#city").change(function() {
       var id_value_string = $(this).val();
       if (id_value_string == "") {
-       $("select#city option").remove();
-       var row = "<option value=\"" + "" + "\">" + "city" + "</option>";
-       $(row).appendTo("select#city");
+        $("select#area option").remove();
+        var row = "<option value=\"" + "" + "\">" + "area" + "</option>";
+        $(row).appendTo("select#area");
       } else {
-       // Send the request and update city dropdown
-        getCitiesOfState(id_value_string)
+        // Send the request and update city dropdown
+        getAreasOfCity(id_value_string)
+        
       }
-     });
-    });   
+    });
+
+
+  });  
 </script>

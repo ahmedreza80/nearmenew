@@ -42,7 +42,7 @@
   <%= render 'welcome/sub' %>
 
 
-<section class="slider d-flex align-items-center" style="max-height:100px;">
+<section class="slider d-flex align-items-center" style="max-height:80px;">
         <!-- <img src="/assets/slider.jpg" class="img-fluid" alt="#"> -->
         <div class="container" >
             <div class="row d-flex justify-content-center">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-center" style="padding-top: 50px;">
+                        <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
                                 <form class="form-wrap mt-4">
                                   
@@ -71,11 +71,9 @@
                                         <div class="select-wapper">
                                         <%= select_tag :city, options_for_select([["Select a City",""]]), :id => 'city' %>
                                         </div>
-                                        <br>
-                                        <div class="select-wapper" style="position:relative;">
+                                        <div class="select-wapper">
                                         <%= select_tag :area, options_for_select([["Select a Area",""]]), :id => 'area' %>
                                         </div>
-                                        <br>
                                         <a href="/welcome/search" class="btn-form search-btn">SEARCH<i class="pe-7s-angle-right"></i></a>
                                     </div>
                                 </form>
@@ -89,15 +87,11 @@
     </section>
 
 
-                <div class="row justify-content-center">
-               
+                <div class="col-md-5">
                     <div class="styled-heading">
-                      <h3>
-                        <marquee behavior="scroll" direction="left">Badshah coming to St. Xaviers on 10th June. </marquee>
-                        </h3>
+                        <h3>What are you finding?</h3>
                     </div>
-               
-            </div>
+                </div>
 
     <section class="section-division mb-1">
     <div class="container my-1">
@@ -562,13 +556,11 @@ function closeNav() {
     <section class="main-block">
         <div class="container">
             <div class="row justify-content-center">
-               
+                <div class="col-md-5">
                     <div class="styled-heading">
-                      <h3>
-                        <marquee behavior="scroll" direction="left">Badshah coming to St. Xaviers on 10th June. </marquee>
-                        </h3>
+                        <h3>What do you need to find?</h3>
                     </div>
-               
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -964,7 +956,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "State")
+          .attr("placeholder", "Please select")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({
@@ -1098,7 +1090,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "District")
+          .attr("placeholder", "Please select")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({
@@ -1229,7 +1221,7 @@ function closeNav() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
-          .attr("placeholder", "Area")
+          .attr("placeholder", "Please select")
           .addClass( "custom-input" )
           .css('width','100px')
           .autocomplete({
